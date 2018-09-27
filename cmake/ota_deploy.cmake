@@ -1,0 +1,12 @@
+find_program(CURL NAMES curl)
+
+if (CURL)
+    message("-- Curl detected: true")
+    set(CURL_DETECTED TRUE)
+    set(OTA_HOST zzuummaa.sytes.net)
+    set(OTA_PORT 9443)
+    set(OTA_TOKEN 01a3b052b7ec4be49fa72da6730e3db3)
+    add_definitions( -DVERSION_LIBINTERFACE=${LIBINTERFACE_VERSION} )
+else()
+    message("-- Curl detected: false")
+endif()

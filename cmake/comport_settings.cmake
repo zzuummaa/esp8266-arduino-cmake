@@ -1,0 +1,1 @@
+set(ESPTOOL_COM_PORT COM6)

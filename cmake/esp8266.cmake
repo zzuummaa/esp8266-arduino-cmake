@@ -47,8 +47,6 @@ file(GLOB ESPTOOL_SUBDIRS LIST_DIRECTORIES=TRUE "${ARDUINO_ESP8266_HOME}/tools/e
 list(GET ESPTOOL_SUBDIRS 0 ESPTOOL_DIR)
 set(ESPTOOL_APP ${ESPTOOL_DIR}/esptool${SYSTEM_EXTENSION})
 
-
-
 link_directories(
     ${HARDWARE_ROOT}/tools/sdk/lib
     ${HARDWARE_ROOT}/tools/sdk/ld
