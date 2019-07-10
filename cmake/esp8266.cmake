@@ -5,7 +5,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/Modules")
 # esp8266 compiler triplet name
 set(TARGET_TRIPLET xtensa-lx106-elf)
 # flash size
-set(FLASH_SIZE 4m)
+set(FLASH_SIZE 1m0)
 # system magic, detect arduino dir and system extension
 if(CMAKE_HOST_SYSTEM_NAME MATCHES "Darwin")
     set(USER_HOME $ENV{HOME})

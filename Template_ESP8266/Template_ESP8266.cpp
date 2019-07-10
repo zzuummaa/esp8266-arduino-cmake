@@ -22,17 +22,31 @@
 
 #include "BlynkProvisioning.h"
 
+uint8_t gpio0_pin = 0;
+uint8_t gpio2_pin = 2;
+
 void setup() {
-  delay(500);
-  Serial.begin(115200);
+    pinMode(gpio0_pin, OUTPUT);
+    digitalWrite(gpio0_pin, LOW);
+    Serial.begin(115200);
+    BlynkProvisioning.begin();
+}
 
-  BlynkProvisioning.begin();
-
+/**
+ * Performs when user write value to V0. Set reset state if writen value is 1.
+ * (Blynk and WIFI configuration will be reset in BlynkProvisioning.run() )
+ *
+ */
+BLYNK_WRITE(V0)
+{
+    bool isVirtualPinReset = param.asInt() == 1;
+    if (isVirtualPinReset) {
+        BlynkState::set(MODE_RESET_CONFIG);
+    }
 }
 
 void loop() {
-  // This handles the network and cloud connection
-  BlynkProvisioning.run();
-
+    // This handles the network and cloud connection
+    BlynkProvisioning.run();
 }
 

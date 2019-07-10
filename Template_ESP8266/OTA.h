@@ -43,7 +43,7 @@ void enterOTA() {
   BlynkState::set(MODE_OTA_UPGRADE);
 
   DEBUG_PRINT(String("Firmware update URL: ") + overTheAirURL);
-  switch (ESPhttpUpdate.update(overTheAirURL, BOARD_FIRMWARE_VERSION)) {
+  switch (ESPhttpUpdate.update(overTheAirURL)) {
   case HTTP_UPDATE_FAILED:
     DEBUG_PRINT(String("Firmware update failed (error ") + ESPhttpUpdate.getLastError() + "): " + ESPhttpUpdate.getLastErrorString());
     BlynkState::set(MODE_ERROR);

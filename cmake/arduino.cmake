@@ -103,11 +103,11 @@ macro(arduino)
 
     # and custom command to create bin file
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-            COMMAND ${ESPTOOL_APP} -eo ${HARDWARE_ROOT}/bootloaders/eboot/eboot.elf -bo $<TARGET_FILE_DIR:${PROJECT_NAME}>/${PROJECT_NAME}.bin -bm dio -bf 40 -bz 4M -bs .text -bp 4096 -ec -eo $<TARGET_FILE:firmware> -bs .irom0.text -bs .text -bs .data -bs .rodata -bc -ec
+            COMMAND ${ESPTOOL_APP} -eo ${HARDWARE_ROOT}/bootloaders/eboot/eboot.elf -bo $<TARGET_FILE_DIR:${PROJECT_NAME}>/${PROJECT_NAME}.bin -bm dio -bf 40 -bz 1M -bs .text -bp 4096 -ec -eo $<TARGET_FILE:firmware> -bs .irom0.text -bs .text -bs .data -bs .rodata -bc -ec
             COMMENT "Building ${PROJECT_NAME}> bin file")
 
     add_custom_target(${PROJECT_NAME}_flash_comport
-            COMMAND ${ESPTOOL_APP} -vv -cd ck -cb 115200 -cp ${ESPTOOL_COM_PORT} -ca 0x40000 -cf $<TARGET_FILE_DIR:${PROJECT_NAME}>/${PROJECT_NAME}.bin
+            COMMAND ${ESPTOOL_APP} -vv -cd ck -cb 115200 -cp ${ESPTOOL_COM_PORT} -ca 0x00000 -cf $<TARGET_FILE_DIR:${PROJECT_NAME}>/${PROJECT_NAME}.bin
             DEPENDS ${PROJECT_NAME})
 
     if (CURL)

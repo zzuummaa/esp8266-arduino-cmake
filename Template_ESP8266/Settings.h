@@ -2,7 +2,7 @@
  * General options
  */
 
-#define BOARD_FIRMWARE_VERSION        "1.0.1"
+#define BOARD_FIRMWARE_VERSION        "1.0.2"
 #define BOARD_HARDWARE_VERSION        "1.0.0"
 
 #define BOARD_NAME                    "Product Name"        // Name of your product. Should match App Export request info.
@@ -22,7 +22,7 @@
   #define BOARD_BUTTON_PIN            0                     // Pin where user button is attached
   #define BOARD_BUTTON_ACTIVE_LOW     true                  // true if button is "active-low"
 
-  #define BOARD_LED_PIN               2                     // Set LED pin - if you have a single-color LED attached
+  #define BOARD_LED_PIN               1                     // Set LED pin - if you have a single-color LED attached
   //#define BOARD_LED_PIN_R           15                    // Set R,G,B pins - if your LED is PWM RGB 
   //#define BOARD_LED_PIN_G           12
   //#define BOARD_LED_PIN_B           13
